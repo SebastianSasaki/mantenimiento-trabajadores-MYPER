@@ -10,6 +10,8 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+builder.Services.AddScoped<TrabajadorRepository>();
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

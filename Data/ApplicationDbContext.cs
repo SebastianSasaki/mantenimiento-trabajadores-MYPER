@@ -8,6 +8,7 @@ namespace MantenimientoTrabajadores.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) { }
 
+        //Tabla Trabajadores
         public DbSet<Trabajador> Trabajadores { get; set; }
     }
 }
