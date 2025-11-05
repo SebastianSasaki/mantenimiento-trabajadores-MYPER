@@ -1,0 +1,90 @@
+@{
+    ViewData["Title"] = "Mantenimiento de Trabajadores";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Mantenimiento de Trabajadores</h2>
+
+    <div class="d-flex justify-content-between mb-3">
+        <div>
+            <select id="filtroSexo" class="form-select">
+                <option value="">-- Todos --</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+            </select>
+        </div>
+        <button class="btn btn-primary" id="btnNuevo">+ Nuevo Trabajador</button>
+    </div>
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Documento</th>
+                <th>Sexo</th>
+                <th>Fecha Nacimiento</th>
+                <th>Dirección</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyTrabajadores"></tbody>
+    </table>
+</div>
+
+<!-- Modal de Registro / Edición -->
+<div class="modal fade" id="modalTrabajador" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form id="formTrabajador">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Nuevo Trabajador</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="id" />
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Nombres</label>
+              <input type="text" id="nombres" class="form-control" required />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Apellidos</label>
+              <input type="text" id="apellidos" class="form-control" required />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Tipo Documento</label>
+              <input type="text" id="tipoDocumento" class="form-control" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Número Documento</label>
+              <input type="text" id="numeroDocumento" class="form-control" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Sexo</label>
+              <select id="sexo" class="form-select">
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Fecha de Nacimiento</label>
+              <input type="date" id="fechaNacimiento" class="form-control" />
+            </div>
+            <div class="col-12">
+              <label class="form-label">Dirección</label>
+              <input type="text" id="direccion" class="form-control" />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Guardar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="~/js/trabajadores.js"></script>
