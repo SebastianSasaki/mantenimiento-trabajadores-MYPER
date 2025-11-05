@@ -1,0 +1,8 @@
+C:\Users\L\OneDrive\Escritorio\Prueba MYPER\mantenimiento-trabajadores\MantenimientoTrabajadores\obj\Debug\net8.0\MantenimientoTrabajadores.csproj.AssemblyReference.cache
+C:\Users\L\OneDrive\Escritorio\Prueba MYPER\mantenimiento-trabajadores\MantenimientoTrabajadores\obj\Debug\net8.0\MantenimientoTrabajadores.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\L\OneDrive\Escritorio\Prueba MYPER\mantenimiento-trabajadores\MantenimientoTrabajadores\obj\Debug\net8.0\MantenimientoTrabajadores.AssemblyInfoInputs.cache
+C:\Users\L\OneDrive\Escritorio\Prueba MYPER\mantenimiento-trabajadores\MantenimientoTrabajadores\obj\Debug\net8.0\MantenimientoTrabajadores.AssemblyInfo.cs
+C:\Users\L\OneDrive\Escritorio\Prueba MYPER\mantenimiento-trabajadores\MantenimientoTrabajadores\obj\Debug\net8.0\MantenimientoTrabajadores.csproj.CoreCompileInputs.cache
+C:\Users\L\OneDrive\Escritorio\Prueba MYPER\mantenimiento-trabajadores\MantenimientoTrabajadores\obj\Debug\net8.0\MantenimientoTrabajadores.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\L\OneDrive\Escritorio\Prueba MYPER\mantenimiento-trabajadores\MantenimientoTrabajadores\obj\Debug\net8.0\MantenimientoTrabajadores.RazorAssemblyInfo.cache
+C:\Users\L\OneDrive\Escritorio\Prueba MYPER\mantenimiento-trabajadores\MantenimientoTrabajadores\obj\Debug\net8.0\MantenimientoTrabajadores.RazorAssemblyInfo.cs
