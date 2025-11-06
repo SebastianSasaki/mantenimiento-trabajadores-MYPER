@@ -17,7 +17,7 @@ namespace MantenimientoTrabajadores.Data
         }
 
         // Método para listar trabajadores con filtro opcional por sexo
-        public async Task<List<Trabajador>> ListarAsync(string sexo = null)
+        public async Task<List<Trabajador>> ListarAsync(string? sexo = null)
         {
             var param = new SqlParameter("@Sexo", string.IsNullOrEmpty(sexo) ? (object)DBNull.Value : sexo);
             var lista = await _db.Trabajadores
@@ -26,5 +26,13 @@ namespace MantenimientoTrabajadores.Data
 
             return lista;
         }
+
+        public async Task<Trabajador?> ObtenerPorIdAsync(int id) => await _db.Trabajadores.FindAsync(id);
+
+        public void Agregar(Trabajador trabajador) {_db.Trabajadores.Add(trabajador);}
+
+        public void Eliminar(Trabajador t) {_db.Trabajadores.Remove(t);}
+
+        public async Task GuardarAsync() {await _db.SaveChangesAsync();}
     }
 }

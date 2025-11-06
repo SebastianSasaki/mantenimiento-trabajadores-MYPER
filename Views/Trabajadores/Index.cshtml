@@ -2,89 +2,134 @@
     ViewData["Title"] = "Mantenimiento de Trabajadores";
 }
 
-<div class="container mt-4">
-    <h2 class="mb-4 text-center">Mantenimiento de Trabajadores</h2>
+@model IEnumerable<MantenimientoTrabajadores.Models.Trabajador>
 
-    <div class="d-flex justify-content-between mb-3">
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2>Mantenimiento de Trabajadores</h2>
         <div>
-            <select id="filtroSexo" class="form-select">
-                <option value="">-- Todos --</option>
-                <option value="Masculino">Masculino</option>
-                <option value="Femenino">Femenino</option>
-            </select>
+          <label for="filtroSexo" class="me-2">Filtrar por sexo:</label>
+          <select id="filtroSexo" name="filtroSexo" class="form-select d-inline-block w-auto">
+            <option value="">Todos</option>
+            @{
+                var sexoSeleccionado = ViewBag.SexoSeleccionado as string;
+            }
+            <option value="Masculino" selected="@(sexoSeleccionado == "Masculino")">Masculino</option>
+            <option value="Femenino" selected="@(sexoSeleccionado == "Femenino")">Femenino</option>
+          </select>
         </div>
-        <button class="btn btn-primary" id="btnNuevo">+ Nuevo Trabajador</button>
     </div>
 
-    <table class="table table-bordered table-hover">
-        <thead class="table-dark">
-            <tr>
-                <th>ID</th>
-                <th>Nombres</th>
-                <th>Apellidos</th>
-                <th>Documento</th>
-                <th>Sexo</th>
-                <th>Fecha Nacimiento</th>
-                <th>Dirección</th>
-                <th>Acciones</th>
+    <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalNuevo">Nuevo Trabajador</button>
+
+    <table class="table table-bordered" id="tablaTrabajadores">
+      <thead class="table-dark">
+        <tr>
+          <th>Foto</th>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Sexo</th>
+          <th>Tipo Doc</th>
+          <th>N° Documento</th>
+          <th>Fecha Nac.</th>
+          <th>Dirección</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var t in Model)
+          {
+            <tr class="@(t.Sexo == "Masculino" ? "table-primary" : t.Sexo == "Femenino" ? "table-warning" : "")">
+              <td>
+                @if (!string.IsNullOrEmpty(t.FotoUrl))
+                  {
+                    <img src="@t.FotoUrl" width="50" class="rounded" />
+                  }
+              </td>
+              <td>@t.Nombres</td>
+              <td>@t.Apellidos</td>
+              <td>@t.Sexo</td>
+              <td>@t.TipoDocumento</td>
+              <td>@t.NumeroDocumento</td>
+              <td>@(t.FechaNacimiento.HasValue ? t.FechaNacimiento.Value.ToShortDateString() : "")</td>
+              <td>@t.Direccion</td>
+              <td>
+                <button class="btn btn-sm btn-warning btnEditar" data-id="@t.Id">Editar</button>
+                <button class="btn btn-sm btn-danger btnEliminar" data-id="@t.Id">Eliminar</button>
+              </td>
             </tr>
-        </thead>
-        <tbody id="tbodyTrabajadores"></tbody>
+          }
+      </tbody>
     </table>
 </div>
 
-<!-- Modal de Registro / Edición -->
-<div class="modal fade" id="modalTrabajador" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <form id="formTrabajador">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalLabel">Nuevo Trabajador</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+<!-- Modal Nuevo -->
+<div class="modal fade" id="modalNuevo" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="formNuevo" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nuevo Trabajador</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" name="Nombres" class="form-control mb-2" placeholder="Nombres" required>
+                    <input type="text" name="Apellidos" class="form-control mb-2" placeholder="Apellidos" required>
+                    <input type="text" name="TipoDocumento" class="form-control mb-2" placeholder="Tipo Documento">
+                    <input type="text" name="NumeroDocumento" class="form-control mb-2" placeholder="Número Documento">
+                    <select name="Sexo" class="form-select mb-2">
+                        <option value="">Seleccione Sexo</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
+                    <input type="date" name="FechaNacimiento" class="form-control mb-2">
+                    <input type="file" name="foto" class="form-control mb-2">
+                    <input type="text" name="Direccion" class="form-control mb-2" placeholder="Dirección">
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Agregar</button>
+                </div>
+            </form>
         </div>
-        <div class="modal-body">
-          <input type="hidden" id="id" />
-          <div class="row g-3">
-            <div class="col-md-6">
-              <label class="form-label">Nombres</label>
-              <input type="text" id="nombres" class="form-control" required />
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">Apellidos</label>
-              <input type="text" id="apellidos" class="form-control" required />
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">Tipo Documento</label>
-              <input type="text" id="tipoDocumento" class="form-control" />
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">Número Documento</label>
-              <input type="text" id="numeroDocumento" class="form-control" />
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">Sexo</label>
-              <select id="sexo" class="form-select">
-                <option value="Masculino">Masculino</option>
-                <option value="Femenino">Femenino</option>
-              </select>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">Fecha de Nacimiento</label>
-              <input type="date" id="fechaNacimiento" class="form-control" />
-            </div>
-            <div class="col-12">
-              <label class="form-label">Dirección</label>
-              <input type="text" id="direccion" class="form-control" />
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Guardar</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        </div>
-      </form>
     </div>
-  </div>
 </div>
 
-<script src="~/js/trabajadores.js"></script>
+<!-- Modal Editar -->
+<div class="modal fade" id="modalEditar" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="formEditar" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Trabajador</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="Id" id="editId">
+
+                    <input type="text" name="Nombres" id="editNombres" class="form-control mb-2" placeholder="Nombres" required>
+                    <input type="text" name="Apellidos" id="editApellidos" class="form-control mb-2" placeholder="Apellidos" required>
+                    <input type="text" name="TipoDocumento" id="editTipoDocumento" class="form-control mb-2" placeholder="Tipo Documento">
+                    <input type="text" name="NumeroDocumento" id="editNumeroDocumento" class="form-control mb-2" placeholder="Número Documento">
+                    
+                    <select name="Sexo" id="editSexo" class="form-select mb-2">
+                        <option value="">Seleccione Sexo</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
+
+                    <input type="date" name="FechaNacimiento" id="editFechaNacimiento" class="form-control mb-2">
+                    <input type="file" name="foto" id="editFoto" class="form-control mb-2">
+                    <input type="text" name="Direccion" id="editDireccion" class="form-control mb-2" placeholder="Dirección">
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-warning">Guardar cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/trabajadores.js"></script>
+}
+

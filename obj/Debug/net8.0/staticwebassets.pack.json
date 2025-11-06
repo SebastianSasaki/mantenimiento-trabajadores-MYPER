@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "C:\\Users\\L\\OneDrive\\Escritorio\\Prueba MYPER\\mantenimiento-trabajadores\\MantenimientoTrabajadores\\wwwroot\\js\\trabajadores.js",
+      "PackagePath": "staticwebassets\\js\\trabajadores.js"
+    },
+    {
       "Id": "C:\\Users\\L\\OneDrive\\Escritorio\\Prueba MYPER\\mantenimiento-trabajadores\\MantenimientoTrabajadores\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

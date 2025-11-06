@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5OQcWXLzw1jm0RpCV3I3N9eQZEulBkInJo1HiXuXtjo=",
+  "Hash": "w3rTxJlp64IvJGzVrKS/XYGZyeODUWYBKPwZp8VXZVo=",
   "Source": "MantenimientoTrabajadores",
   "BasePath": "_content/MantenimientoTrabajadores",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\L\\OneDrive\\Escritorio\\Prueba MYPER\\mantenimiento-trabajadores\\MantenimientoTrabajadores\\wwwroot\\js\\trabajadores.js",
+      "SourceId": "MantenimientoTrabajadores",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\L\\OneDrive\\Escritorio\\Prueba MYPER\\mantenimiento-trabajadores\\MantenimientoTrabajadores\\wwwroot\\",
+      "BasePath": "_content/MantenimientoTrabajadores",
+      "RelativePath": "js/trabajadores.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\trabajadores.js"
     },
     {
       "Identity": "C:\\Users\\L\\OneDrive\\Escritorio\\Prueba MYPER\\mantenimiento-trabajadores\\MantenimientoTrabajadores\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
