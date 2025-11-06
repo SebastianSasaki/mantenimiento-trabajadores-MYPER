@@ -166,3 +166,4 @@ C:\Users\L\OneDrive\Escritorio\Prueba MYPER\mantenimiento-trabajadores\Mantenimi
 C:\Users\L\OneDrive\Escritorio\Prueba MYPER\mantenimiento-trabajadores\MantenimientoTrabajadores\obj\Debug\net8.0\MantenimientoTrabajadores.pdb
 C:\Users\L\OneDrive\Escritorio\Prueba MYPER\mantenimiento-trabajadores\MantenimientoTrabajadores\obj\Debug\net8.0\MantenimientoTrabajadores.genruntimeconfig.cache
 C:\Users\L\OneDrive\Escritorio\Prueba MYPER\mantenimiento-trabajadores\MantenimientoTrabajadores\obj\Debug\net8.0\ref\MantenimientoTrabajadores.dll
+C:\Users\L\OneDrive\Escritorio\Prueba MYPER\mantenimiento-trabajadores\MantenimientoTrabajadores\obj\Debug\net8.0\MantenimientoTrabajadores.sourcelink.json
