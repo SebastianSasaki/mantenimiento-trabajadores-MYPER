@@ -1,0 +1,25 @@
+# Compilados y temporales
+bin/
+obj/
+.vs/
+*.user
+*.db
+*.log
+*.cache
+*.dll
+*.pdb
+
+# Archivos de configuración local
+appsettings.Development.json
+
+# Archivos de carga (uploads)
+wwwroot/uploads/
+
+# Archivos de sistema (Windows, VS Code)
+Thumbs.db
+*.suo
+*.tmp
+*.bak
+*.swp
+*.DS_Store
+.vscode/
