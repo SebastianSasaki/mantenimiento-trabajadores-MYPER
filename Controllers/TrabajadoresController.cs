@@ -12,9 +12,11 @@ namespace MantenimientoTrabajadores.Controllers
         public TrabajadoresController(TrabajadorRepository repo) { _repo = repo; }
 
         // ✅ GET: /Trabajadores?sexo=Masculino
-        public async Task<IActionResult> Index(string? sexo) 
+        public async Task<IActionResult> Index(string? sexo)
         {
-            var lista = await _repo.ListarAsync(sexo);
+            sexo = string.IsNullOrWhiteSpace(sexo) ? null : sexo;
+            var lista = await _repo.ListarAsync(string.IsNullOrEmpty(sexo) ? null : sexo);
+            ViewBag.SexoSeleccionado = sexo;
             return View(lista);
         }
 
@@ -26,7 +28,7 @@ namespace MantenimientoTrabajadores.Controllers
             if (trabajador == null)
                 return NotFound();
 
-            return Json(trabajador);
+            return View(trabajador);
         }
 
         // ✅ POST: /Trabajadores/Crear

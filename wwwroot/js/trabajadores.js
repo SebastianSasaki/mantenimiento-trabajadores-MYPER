@@ -73,9 +73,12 @@ $(document).ready(function () {
 
   // Filtro (si usas server-side rendering con query-string)
   $('#filtroSexo').on('change', function () {
-    var sexo = $(this).val();
-    var url = sexo ? '/Trabajadores?sexo=' + encodeURIComponent(sexo) : '/Trabajadores';
-    window.location.href = url;
+  var sexo = $(this).val();
+  if (sexo && sexo !== "") {
+    window.location.href = '/Trabajadores?sexo=' + encodeURIComponent(sexo);
+  } else {
+    // ✅ Si selecciona "Todos", limpiar filtro
+    window.location.href = '/Trabajadores';
+  }
   });
-
 });

@@ -10,9 +10,17 @@
         <div>
           <label for="filtroSexo" class="me-2">Filtrar por sexo:</label>
           <select id="filtroSexo" name="filtroSexo" class="form-select d-inline-block w-auto">
-            <option value="">Todos</option>
             @{
-                var sexoSeleccionado = ViewBag.SexoSeleccionado as string;
+              var sexoSeleccionado = ViewBag.SexoSeleccionado as string;
+            }
+
+            @if (string.IsNullOrEmpty(sexoSeleccionado))
+            {
+              <option value="" selected="@(sexoSeleccionado == "")">Todos</option>
+            }
+            else
+            {
+              <option value="">Todos</option>
             }
             <option value="Masculino" selected="@(sexoSeleccionado == "Masculino")">Masculino</option>
             <option value="Femenino" selected="@(sexoSeleccionado == "Femenino")">Femenino</option>

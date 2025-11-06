@@ -23,7 +23,6 @@ namespace MantenimientoTrabajadores.Data
             var lista = await _db.Trabajadores
                 .FromSqlRaw("EXEC dbo.sp_ListarTrabajadores @Sexo", param)
                 .ToListAsync();
-
             return lista;
         }
 
